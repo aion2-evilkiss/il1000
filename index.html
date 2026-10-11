@@ -14,22 +14,22 @@ img{max-width:100%}
 
 /* Layout: 攻略wiki形式。タイトル+更新日 → 番号付き目次表 → 帯見出し(H2)と左線見出し(H3) → 情報はほぼ表で見せる。 */
 :root{
-  --bg:#eef0f3; --page:#ffffff; --ink:#1d232c; --muted:#5d6876; --line:#c9d0da;
-  --bar:#22324d; --bar-ink:#ffffff; --accent:#c8442b; --link:#1a5fc4;
-  --th:#e8edf5; --th-ink:#22324d; --point:#fff6d9; --point-ink:#5f4500; --point-line:#e6c65a;
+  --bg:#efecef; --page:#ffffff; --ink:#1f1c23; --muted:#655f6b; --line:#d6ced6;
+  --bar:#1c1a20; --bar-ink:#ffffff; --accent:#f7a8dc; --em:#c0277f; --link:#1a5fc4;
+  --th:#f4ecf2; --th-ink:#2a2530; --point:#fff6d9; --point-ink:#5f4500; --point-line:#e6c65a;
   --g-green:#2b8a4c; --g-blue:#2c6bd0; --g-gold:#a37408;
   --body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
   --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0f141c; --page:#171e29; --ink:#e5eaf1; --muted:#9ba7b6; --line:#313c4c;
-  --bar:#2d4470; --bar-ink:#ffffff; --accent:#f0806a; --link:#86b5f7;
-  --th:#222d3d; --th-ink:#cfdcf0; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
+  --bg:#111014; --page:#1c1a20; --ink:#ece8ee; --muted:#a69fab; --line:#37323c;
+  --bar:#2b2731; --bar-ink:#ffffff; --accent:#fcc2eb; --em:#fcc2eb; --link:#86b5f7;
+  --th:#26222b; --th-ink:#eadfe8; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
   --g-green:#62c784; --g-blue:#7aa9f5; --g-gold:#e2b84a; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f141c; --page:#171e29; --ink:#e5eaf1; --muted:#9ba7b6; --line:#313c4c;
-  --bar:#2d4470; --bar-ink:#ffffff; --accent:#f0806a; --link:#86b5f7;
-  --th:#222d3d; --th-ink:#cfdcf0; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
+  --bg:#111014; --page:#1c1a20; --ink:#ece8ee; --muted:#a69fab; --line:#37323c;
+  --bar:#2b2731; --bar-ink:#ffffff; --accent:#fcc2eb; --em:#fcc2eb; --link:#86b5f7;
+  --th:#26222b; --th-ink:#eadfe8; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
   --g-green:#62c784; --g-blue:#7aa9f5; --g-gold:#e2b84a; color-scheme:dark}
 
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.75;padding-inline:16px;padding-block:20px 48px}
@@ -41,7 +41,7 @@ a{color:var(--link);text-decoration:none}
 a:hover,a:focus-visible{text-decoration:underline}
 a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
 
-h2{font-size:18px;font-weight:700;line-height:1.5;margin:14px 0 0;padding:8px 12px;background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);scroll-margin-top:12px}
+h2{font-size:18px;font-weight:700;line-height:1.5;margin:14px 0 0;padding:8px 12px;background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);scroll-margin-top:56px}
 h3{font-size:16px;font-weight:700;line-height:1.5;margin:6px 0 0;padding:2px 0 2px 10px;border-left:5px solid var(--accent);border-bottom:1px solid var(--line)}
 
 .tw{overflow-x:auto}
@@ -66,19 +66,44 @@ li+li{margin-top:2px}
 kbd{font-family:var(--mono);font-size:12.5px;background:var(--th);color:var(--ink);border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 5px;white-space:nowrap}
 .g{font-weight:700;white-space:nowrap}
 .green{color:var(--g-green)}.blue{color:var(--g-blue)}.gold{color:var(--g-gold)}
-.red{color:var(--accent);font-weight:700}
+.red{color:var(--em);font-weight:700}
 figure.shot{margin:0;border:1px solid var(--line);background:var(--th)}
 figure.shot img{display:block;width:100%;height:auto}
 figure.shot.narrow{max-width:420px}
 figure.shot.fit{width:fit-content;max-width:100%;margin-inline:auto}
 figure.shot.fit img{width:auto;max-width:100%;max-height:60vh}
 figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;border-top:1px solid var(--line)}
+.gnav{position:sticky;top:0;z-index:10;margin:-20px -16px 16px;background:#1c1a20;border-bottom:3px solid var(--accent);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gnav::-webkit-scrollbar{display:none}
+.gnav ul{list-style:none;margin:0 auto;padding:0 8px;max-width:760px;display:flex;white-space:nowrap}
+.gnav li+li{margin-top:0}
+.gnav a{display:block;padding:11px 10px;color:var(--bar-ink);font-size:13.5px;font-weight:700}
+.gnav a:hover,.gnav a:focus-visible{text-decoration:none;background:var(--accent);color:#1c1a20}
+.gnav a:focus-visible{outline:2px solid var(--bar-ink);outline-offset:-3px}
+#top{scroll-margin-top:60px}
+.hero{margin:-20px calc(-1*clamp(14px,4vw,28px)) 0;background:#1c1a20;padding:22px 16px 18px;text-align:center;border-bottom:3px solid var(--accent)}
+.hero img{display:block;margin-inline:auto;width:min(340px,82%);height:auto}
+.hero p{margin:8px 0 0;color:#fcc2eb;font-size:12px;font-weight:700;letter-spacing:.18em}
+.credit{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
 </style>
 
 </head>
 <body>
-<div class="page">
+<nav class="gnav" aria-label="目次">
+  <ul>
+    <li><a href="#top">TOP</a></li>
+    <li><a href="#s0">ILの目安</a></li>
+    <li><a href="#s1">①ストーリー</a></li>
+    <li><a href="#s2">②1000〜1400</a></li>
+    <li><a href="#s3">③届かないとき</a></li>
+    <li><a href="#s4">部位別</a></li>
+    <li><a href="#s5">ショートカット</a></li>
+    <li><a href="#s6">IL1400の装備例</a></li>
+  </ul>
+</nav>
+<div class="page" id="top">
+  <div class="hero"><img src="img/logo.png" alt="Sugarless AION2 LEGION" width="900" height="378"><p>LEGION GUIDE</p></div>
   <h1>AION2 IL上げガイド｜IL1400までの進め方</h1>
   <p class="meta">最終更新日:2026年10月11日</p>
 
@@ -182,7 +207,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       <thead><tr><th>方法</th><th>内容</th></tr></thead>
       <tbody>
         <tr><th>フィールドボス</th><td>ガルトゥア、ラグタなど唯一等級装備が貰えるフィールドボスに参加(天だとカシャパ、タルタンとか)</td></tr>
-        <tr><th>イベント</th><td>1h置きのイベントに参加してシューゴポイントを貰い、ディーヴァニオン結晶と交換。<br>スティグマシャードをかなり重要なのでILがどうしても足りないとかでない限りは急いで使わなくてもOK。</td></tr>
+        <tr><th>イベント</th><td>1h置きのイベントに参加してシューゴポイントを貰い、ディーヴァニオン結晶と交換<br>シューゴポイントで貰えるアイテムでスティグマシャードもとても大事なものになります。ILがどうしても足りないとかでなければディーヴァニオン結晶を急いで交換しなくてもいいです。</td></tr>
       </tbody>
     </table>
   </div>
@@ -199,7 +224,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
         <tr><th>アクセサリー</th><td>地域クエスト報酬の指輪・イヤリング・ネックレスで空き部位を埋める</td></tr>
         <tr><th>ベルト<br>アミュレット</th><td>+10にして物質変換で上位等級へ。長く使う装備なので優先<br><span class="red">※黄色は最初、強化しなくていいです。素材が死ぬほど重いので</span></td></tr>
         <tr><th>ルーン</th><td>激突のルーンを2枠に装着し、+1止め</td></tr>
-        <tr><th>魔石</th><td>武器と防具の全部位に1つずつ。下級を使ってください。中級はこの時点で絶対に使わないでください。あとで死ぬほど後悔します。<br><span class="note">※ステータス厳選は不要</span></td></tr>
+        <tr><th>魔石</th><td>武器と防具の全部位に1つずつ。下級魔石を使ってください。この時点で中級は絶対に使わないでください。あとで死ぬほど後悔します。<br><span class="note">※ステータス厳選は不要</span></td></tr>
         <tr><th>ディーヴァニオン</th><td>ILが上がるので、結晶は貯めずに使う</td></tr>
       </tbody>
     </table>
@@ -208,7 +233,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   <div class="point"><b>黄色装備は分解しない</b>黄色装備は後々、装備のオプション厳選で使うので分解しないこと。できれば取引所で売ることもしない方がいい。<br>逆に今は黄色装備が取引所に少ないので、高値で売れるっちゃ売れる。</div>
 
   <h3>魔石の刻印</h3>
-  <figure class="shot"><img src="img/evilkiss2.jpg" alt="統合強化の魔石タブ。下級霊石(刻印)を選んだ状態" loading="lazy"><figcaption>▲統合強化の「魔石」タブ。右の一覧から下級魔石を選んで刻印する。</figcaption></figure>
+  <figure class="shot"><img src="img/evilkiss2.jpg" alt="統合強化の魔石タブ。下級霊石(刻印)を選んだ状態" loading="lazy"><figcaption>▲統合強化の「魔石」タブ。右の一覧から下級魔石を選んで刻印する</figcaption></figure>
   <figure class="shot narrow"><img src="img/evilkiss3.jpg" alt="魔石を刻印した結果。防御力+30、クリティカル抵抗+7、ガード+7" loading="lazy"><figcaption>▲刻印するとステータスが付く。厳選は不要なので付けばOK</figcaption></figure>
 
   <h2 id="s5">ショートカット</h2>
@@ -226,7 +251,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   <p>大体これくらいでIL1400になります。</p>
   <figure class="shot fit"><img src="img/evilkiss6.jpg" alt="IL1400時点の装備例" loading="lazy"><figcaption>▲IL1400時点の装備例</figcaption></figure>
 
-  <footer>プレイヤーによる個人メモです。数値や仕様はアップデートで変わることがあります。</footer>
+  <footer>レギオンメンバーと知り合い向けメモです。数値や仕様はアップデートで変わることがあります。</footer>
 </div>
 </body>
 </html>
