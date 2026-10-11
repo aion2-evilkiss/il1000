@@ -10,6 +10,7 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0}
 *{box-sizing:border-box}
+img{max-width:100%}
 
 /* Layout: 攻略wiki形式。タイトル+更新日 → 番号付き目次表 → 帯見出し(H2)と左線見出し(H3) → 情報はほぼ表で見せる。 */
 :root{
@@ -66,6 +67,10 @@ kbd{font-family:var(--mono);font-size:12.5px;background:var(--th);color:var(--in
 .g{font-weight:700;white-space:nowrap}
 .green{color:var(--g-green)}.blue{color:var(--g-blue)}.gold{color:var(--g-gold)}
 .red{color:var(--accent);font-weight:700}
+figure.shot{margin:0;border:1px solid var(--line);background:var(--th)}
+figure.shot img{display:block;width:100%;height:auto}
+figure.shot.narrow{max-width:420px}
+figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;border-top:1px solid var(--line)}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
 </style>
 
@@ -129,6 +134,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
+  <figure class="shot"><img src="img/evilkiss1.jpg" alt="統合強化の画面。成長タブを選んだ状態" loading="lazy"><figcaption>▲統合強化の画面。「成長」タブで装備を強化する</figcaption></figure>
   <div class="point"><b>注意ポイント</b>強化石とギーナは後々無限に必要なので、無駄遣いに注意。</div>
 
   <h2 id="s2">②IL1000から1400を目指す</h2>
@@ -156,6 +162,9 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
+
+  <figure class="shot"><img src="img/evilkiss4.jpg" alt="遠征画面のドラウプニル。入場条件はLv.45、IL700、1人〜5人" loading="lazy"><figcaption>▲遠征のドラウプニル。入場条件はIL700、下に確定報酬のゲージがある</figcaption></figure>
+  <figure class="shot"><img src="img/evilkiss5.jpg" alt="確定報酬アイテムの選択画面。ヴォカルマのプレートなど防具が並ぶ" loading="lazy"><figcaption>▲確定報酬の選択画面。ヴォカルマ防具(唯一)から1つ選べる</figcaption></figure>
 
   <h3>激突のルーンは+1止め</h3>
   <ul>
@@ -193,6 +202,12 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
+
+  <div class="point"><b>黄色装備は分解しない</b>黄色装備は後々、装備のオプション厳選で使うので分解しないこと。できれば取引所で売ることもしない方がいい。<br>逆に今は黄色装備が取引所に少ないので、高値で売れるっちゃ売れる。</div>
+
+  <h3>魔石の刻印</h3>
+  <figure class="shot"><img src="img/evilkiss2.jpg" alt="統合強化の魔石タブ。下級霊石(刻印)を選んだ状態" loading="lazy"><figcaption>▲統合強化の「魔石」タブ。右の一覧から魔石を選んで刻印する</figcaption></figure>
+  <figure class="shot narrow"><img src="img/evilkiss3.jpg" alt="魔石を刻印した結果。防御力+30、クリティカル抵抗+7、ガード+7" loading="lazy"><figcaption>▲刻印するとステータスが付く。厳選は不要なので付けばOK</figcaption></figure>
 
   <h2 id="s5">ショートカット</h2>
   <div class="tw">
