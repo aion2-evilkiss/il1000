@@ -93,7 +93,10 @@ figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;bord
 .gal3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .gal2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:560px){.gal2.stack{grid-template-columns:1fr}}
-.gal figure.shot img{max-height:70vh;object-fit:contain}
+.gal{align-items:stretch}
+.gal figure.shot{display:flex;flex-direction:column}
+.gal figure.shot img{height:auto}
+.gal figure.shot figcaption{flex:1}
 .lead{font-weight:700;font-size:16px}
 .goal{background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .goal b{color:var(--accent);font-size:17px}
@@ -171,7 +174,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
-  <figure class="shot narrow"><img src="img/evilkiss13.jpg" alt="シールダンジョン「安息の地」の入場画面。推奨レベル35、基本報酬が並ぶ" loading="lazy"><figcaption>▲シールダンジョン(例:安息の地)。基本報酬に結晶・スキルポイント・強化石が入っている</figcaption></figure>
+  <figure class="shot narrow"><img src="img/evilkiss12.jpg" alt="シールダンジョン「安息の地」の入場画面。推奨レベル35、基本報酬が並ぶ" loading="lazy"><figcaption>▲シールダンジョン(例:安息の地)。基本報酬に結晶・スキルポイント・強化石が入っている</figcaption></figure>
 
   <h3>装備強化は青を+5まで</h3>
   <div class="tw">
@@ -208,8 +211,11 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     </table>
   </div>
   <p class="note">※強化にはスクロールのほかにギーナも必要です。</p>
-  <figure class="shot"><img src="img/evilkiss10.jpg" alt="フィールドにあるアルトガルドのモノリス" loading="lazy"><figcaption>▲各地にあるモノリス。ここに羽を納品する</figcaption></figure>
-  <figure class="shot narrow"><img src="img/evilkiss11.jpg" alt="モノリスの共鳴画面。Lv.16、レベル達成報酬に強化スクロールがある" loading="lazy"><figcaption>▲モノリスの共鳴画面。レベルが上がると報酬で強化スクロールがもらえる</figcaption></figure>
+  <div class="gal" style="grid-template-columns:1.749fr .562fr">
+    <figure class="shot"><img src="img/evilkiss10.jpg" alt="フィールドにあるアルトガルドのモノリス" loading="lazy"><figcaption>▲モノリス</figcaption></figure>
+    <figure class="shot"><img src="img/evilkiss11.jpg" alt="モノリスの共鳴画面。Lv.16、レベル達成報酬に強化スクロールがある" loading="lazy"><figcaption>▲共鳴画面</figcaption></figure>
+  </div>
+  <p class="note">※各地にあるモノリスに羽を納品すると共鳴レベルが上がり、レベル達成報酬で強化スクロールがもらえます。</p>
 
   <h3>IDで装備を確定入手</h3>
   <div class="tw">
