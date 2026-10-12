@@ -48,7 +48,7 @@ h3{font-size:16px;font-weight:700;line-height:1.5;margin:6px 0 0;padding:2px 0 2
 table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
 th{background:var(--th);color:var(--th-ink);font-weight:700}
-thead th{text-align:center}
+thead th{text-align:center;white-space:nowrap}
 tbody th{width:8.5em;white-space:nowrap}
 td.num,th.num{text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
 .toc td{width:33.33%;font-weight:500}
@@ -65,7 +65,7 @@ li+li{margin-top:2px}
 .note{font-size:13px;color:var(--muted)}
 kbd{font-family:var(--mono);font-size:12.5px;background:var(--th);color:var(--ink);border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 5px;white-space:nowrap}
 .g{font-weight:700;white-space:nowrap}
-.green{color:var(--g-green)}.blue{color:var(--g-blue)}.gold{color:var(--g-gold)}
+.gray{color:var(--muted)}.green{color:var(--g-green)}.blue{color:var(--g-blue)}.gold{color:var(--g-gold)}
 .red{color:var(--em);font-weight:700}
 figure.shot{margin:0;border:1px solid var(--line);background:var(--th)}
 figure.shot img{display:block;width:100%;height:auto}
@@ -109,6 +109,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <li><a href="#s1">①IDで装備</a></li>
     <li><a href="#s2">②運が悪い人</a></li>
     <li><a href="#s3">③戦闘力(CP)</a></li>
+    <li><a href="#arcana">アルカナ</a></li>
     <li><a href="#s4">④強化石</a></li>
     <li><a href="#s5">⑤アビスの羽</a></li>
     <li><a href="#s6">IL1600の先</a></li>
@@ -158,7 +159,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
         <tr><th>ウルググ峡谷</th><td><strong>アクセサリー</strong>(ネックレス・イヤリング・リング)</td></tr>
         <tr><th>バクロンの空中島</th><td><strong>防具</strong>(プレート・ゲートル・ヘルム・ショルダー・グローブなど)</td></tr>
         <tr><th>入場条件</th><td>IL1400以上、2人〜5人</td></tr>
-        <tr><th>確定報酬</th><td>箱を<span class="red">21回</span>開けると1つ選べる</td></tr>
+        <tr><th>確定報酬</th><td>征服(Hard)は箱を<span class="red">21回</span>開けると1つ選べる</td></tr>
       </tbody>
     </table>
   </div>
@@ -168,6 +169,24 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   </div>
   <p>ここからは確定箱の回数が21回に増え、運も必要になってきます。毎日NCへのお祈りを欠かさず、他人に優しく、天族を駆逐して徳を積みましょう。</p>
   <div class="point"><b>運が良ければ</b>4〜5か所拾えて、適当に強化すればIL1600です。おめでとう！！</div>
+
+  <h3>確定箱までの回数は難易度で違う</h3>
+  <p>同じIDでも、探索(Easy)と征服(Hard)で確定箱までに開ける箱の数が違います。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>難易度</th><th>確定箱まで</th><th>もらえる回数</th></tr></thead>
+      <tbody>
+        <tr><th>探索(Easy)</th><td class="num">3箱</td><td><span class="red">1回のみ</span></td></tr>
+        <tr><th>征服(Hard)</th><td class="num">21箱</td><td>何周でもできる</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>これはIL1600、IL2100のIDでも同じです。探索(Easy)なら3箱開けるだけで確定箱を手に入れられますが、もらえるのは1回だけ。2回目以降は征服(Hard)で21箱ずつ開けていきます。</p>
+  <div class="point"><b>確定箱は征服で出なかった部位に使う</b>確定箱は、征服(Hard)を回って出なかった部位を交換する方が効率が良いです。</div>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/soubi1.jpg" alt="探険(Easy)のバクロンの空中島。確定報酬のゲージが満タンで、防具を選べる" loading="lazy"><figcaption>▲探険(Easy)のバクロンの空中島。3箱で確定報酬の防具が選べる</figcaption></figure>
+    <figure class="shot"><img src="img/soubi2.jpg" alt="探険(Easy)の獰猛な角岩窟。入場条件IL2100、確定報酬は0/3" loading="lazy"><figcaption>▲探険(Easy)の獰猛な角岩窟(IL2100)。確定報酬は3箱(0/3)</figcaption></figure>
+  </div>
 
   <h2 id="s2">②運が悪い人</h2>
   <p>残念ながら装備が拾えなかった方は、確定報酬で足りない部位を埋めます。</p>
@@ -201,7 +220,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
-  <div class="point"><b>特にスティグマがおすすめ</b>スティグマはCPを上げやすいです。スキル自体も強力なものが多く、スキルレベル10・15・20で付く追加効果がめちゃくちゃ強くなることがあります。</div>
+  <div class="point"><b>特にスティグマがおすすめ</b>スティグマはCPを上げやすいです。スキル自体も強力なものが多く、スティグマレベル10・15・20で付く追加効果がめちゃくちゃ強くなることがあります。</div>
 
   <h3>スキルとスティグマ</h3>
   <div class="tw">
@@ -223,6 +242,49 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <figure class="shot"><img src="img/skill4.jpg" alt="スティグマ一覧。下にレベルアップボタンがある" loading="lazy"><figcaption>▲スティグマ一覧。下のレベルアップでスティグマシャードを使う</figcaption></figure>
     <figure class="shot"><img src="img/skill5.jpg" alt="バイゼルの権能Lv.19の詳細。Lv.20で解放される効果に鍵マークが付いている" loading="lazy"><figcaption>▲レベル20で解放される追加効果(鍵マーク)</figcaption></figure>
   </div>
+
+  <h3>スキルレベルの上げ方</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>スキルLv</th><th>上げ方</th></tr></thead>
+      <tbody>
+        <tr><td class="num">〜10</td><td>スキルポイントで上げる</td></tr>
+        <tr><td class="num">〜12</td><td>ディーヴァニオンボードで<span class="red">+2</span></td></tr>
+        <tr><td class="num">12〜20</td><td><strong>アルカナ</strong>という装備で上げる<br><span class="note">※超越ID(IL1600)でドロップする装備品</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><b>特化はLv8・12・16・20で付与できる</b>スキルレベルが8、12、16、20になると、スキルに特化を付けられます。</div>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/skill6.jpg" alt="メニューバー。ディーヴァニオンはUキー" loading="lazy"><figcaption>▲メニューの「ディーヴァニオン」(<kbd>U</kbd>)</figcaption></figure>
+    <figure class="shot"><img src="img/skill7.jpg" alt="ディーヴァニオンボード画面。スキルのノードを習得するとスキルレベルが上がる" loading="lazy"><figcaption>▲ディーヴァニオンボード。スキルのノードでスキルLvが+される</figcaption></figure>
+  </div>
+
+  <h3 id="arcana" style="scroll-margin-top:56px">アルカナ</h3>
+  <p>アルカナは超越ID(IL1600)でドロップする装備です。ステータスとスキルレベルが上がり、ILも上がります。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>等級</th><th>1か所あたりのIL</th></tr></thead>
+      <tbody>
+        <tr><th><span class="g gray">灰</span></th><td class="num">+20</td></tr>
+        <tr><th><span class="g green">緑</span></th><td class="num">+40</td></tr>
+        <tr><th><span class="g gold">金</span></th><td class="num">+80</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/arukana1.jpg" alt="メニュー一覧。アルカナはAlt+V" loading="lazy"><figcaption>▲メニューの「アルカナ」(<kbd>Alt</kbd>+<kbd>V</kbd>)</figcaption></figure>
+    <figure class="shot"><img src="img/arukana2.jpg" alt="アルカナ画面。装着したカードと装着効果、セット効果" loading="lazy"><figcaption>▲アルカナ画面。右に装着効果(ステータス・スキルLv)とセット効果</figcaption></figure>
+  </div>
+  <div class="gal gal3">
+    <figure class="shot"><img src="img/arukana3.jpg" alt="魔力の聖杯。アイテムレベル20" loading="lazy"><figcaption>▲魔力の聖杯(IL20)</figcaption></figure>
+    <figure class="shot"><img src="img/arukana4.jpg" alt="活力の羊皮紙。アイテムレベル40" loading="lazy"><figcaption>▲活力の羊皮紙(IL40)</figcaption></figure>
+    <figure class="shot"><img src="img/arukana5.jpg" alt="+3活力の聖杯。アイテムレベル80+3" loading="lazy"><figcaption>▲+3 活力の聖杯(IL80+3)</figcaption></figure>
+  </div>
+
+  <h3>ペット集め</h3>
+  <p>ペットにはステータス厳選というものがあります。が、わかりにくいので、また詳しく別ページを作ります。</p>
+  <figure class="shot"><img src="img/pet1.jpg" alt="ペット画面の種族理解度。分析効果でステータスが付く" loading="lazy"><figcaption>▲ペットの「種族理解度」画面</figcaption></figure>
 
   <h2 id="s4">④強化石の集め方</h2>
   <div class="tw">
