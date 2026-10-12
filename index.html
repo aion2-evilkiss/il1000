@@ -97,6 +97,13 @@ figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;bord
 .lead{font-weight:700;font-size:16px}
 .goal{background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .goal b{color:var(--accent);font-size:17px}
+figure.shot img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(12,10,14,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:48px 12px 16px}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:calc(100% - 40px);object-fit:contain;cursor:zoom-out}
+.lb p{margin:0;color:#ece8ee;font-size:13px;text-align:center}
+.lb-x{position:absolute;top:8px;right:10px;width:40px;height:40px;border:1px solid #fcc2eb;background:#1c1a20;color:#fff;font-size:22px;line-height:1;border-radius:50%;cursor:pointer}
+.lb-x:focus-visible{outline:2px solid #fcc2eb;outline-offset:2px}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
 </style>
 
@@ -266,5 +273,28 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
   <footer>レギオンメンバーと知り合い向けメモです。数値や仕様はアップデートで変わることがあります。</footer>
 </div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="画像の拡大表示">
+  <button class="lb-x" type="button" aria-label="閉じる">×</button>
+  <img alt="">
+  <p></p>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),big=lb.querySelector('img'),cap=lb.querySelector('p'),last=null;
+  function open(img){
+    last=img;big.src=img.currentSrc||img.src;big.alt=img.alt;
+    var fc=img.closest('figure').querySelector('figcaption');cap.textContent=fc?fc.textContent:'';
+    lb.hidden=false;document.body.style.overflow='hidden';lb.querySelector('.lb-x').focus();
+  }
+  function close(){lb.hidden=true;big.removeAttribute('src');document.body.style.overflow='';if(last)last.focus();}
+  document.querySelectorAll('figure.shot img').forEach(function(img){
+    img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label',(img.alt||'画像')+'(タップで拡大)');
+    img.addEventListener('click',function(){open(img);});
+    img.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(img);}});
+  });
+  lb.addEventListener('click',close);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+})();
+</script>
 </body>
 </html>
