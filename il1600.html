@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AION2でIL1400からIL1600までアイテムレベルを上げる手順と、戦闘力(CP)・強化石・アビスの羽の集め方。">
+<title>AION2 IL上げガイド IL1400〜1600</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+*{box-sizing:border-box}
+img{max-width:100%}
+
+/* Layout: 攻略wiki形式。タイトル+更新日 → 番号付き目次表 → 帯見出し(H2)と左線見出し(H3) → 情報はほぼ表で見せる。 */
+:root{
+  --bg:#efecef; --page:#ffffff; --ink:#1f1c23; --muted:#655f6b; --line:#d6ced6;
+  --bar:#1c1a20; --bar-ink:#ffffff; --accent:#f7a8dc; --em:#c0277f; --link:#1a5fc4;
+  --th:#f4ecf2; --th-ink:#2a2530; --point:#fff6d9; --point-ink:#5f4500; --point-line:#e6c65a;
+  --g-green:#2b8a4c; --g-blue:#2c6bd0; --g-gold:#a37408;
+  --body:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111014; --page:#1c1a20; --ink:#ece8ee; --muted:#a69fab; --line:#37323c;
+  --bar:#2b2731; --bar-ink:#ffffff; --accent:#fcc2eb; --em:#fcc2eb; --link:#86b5f7;
+  --th:#26222b; --th-ink:#eadfe8; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
+  --g-green:#62c784; --g-blue:#7aa9f5; --g-gold:#e2b84a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111014; --page:#1c1a20; --ink:#ece8ee; --muted:#a69fab; --line:#37323c;
+  --bar:#2b2731; --bar-ink:#ffffff; --accent:#fcc2eb; --em:#fcc2eb; --link:#86b5f7;
+  --th:#26222b; --th-ink:#eadfe8; --point:#33290f; --point-ink:#f1d78c; --point-line:#6d5a1e;
+  --g-green:#62c784; --g-blue:#7aa9f5; --g-gold:#e2b84a; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.75;padding-inline:16px;padding-block:20px 48px}
+.page{max-width:760px;margin-inline:auto;background:var(--page);border:1px solid var(--line);padding:20px clamp(14px,4vw,28px) 28px;display:flex;flex-direction:column;gap:18px}
+h1{font-size:clamp(21px,5.4vw,27px);font-weight:900;line-height:1.4;margin:0;padding-bottom:10px;border-bottom:3px solid var(--accent);text-wrap:balance}
+.meta{font-size:12px;color:var(--muted);margin:-10px 0 0}
+p{margin:0}
+a{color:var(--link);text-decoration:none}
+a:hover,a:focus-visible{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+
+h2{font-size:18px;font-weight:700;line-height:1.5;margin:14px 0 0;padding:8px 12px;background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);scroll-margin-top:56px}
+h3{font-size:16px;font-weight:700;line-height:1.5;margin:6px 0 0;padding:2px 0 2px 10px;border-left:5px solid var(--accent);border-bottom:1px solid var(--line)}
+
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--th);color:var(--th-ink);font-weight:700}
+thead th{text-align:center}
+tbody th{width:8.5em;white-space:nowrap}
+td.num,th.num{text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.toc td{width:33.33%;font-weight:500}
+.toc caption{caption-side:top;text-align:left;font-weight:700;padding:0 0 6px;font-size:14px}
+@media (max-width:560px){
+  .toc,.toc caption,.toc tbody,.toc tr,.toc td{display:block;width:auto}
+  .toc td{margin-top:-1px}
+  tbody th{width:1%}
+}
+ul,ol{margin:0;padding-left:1.4em}
+li+li{margin-top:2px}
+.point{background:var(--point);color:var(--point-ink);border:1px solid var(--point-line);padding:10px 12px;font-size:14px}
+.point b{display:block}
+.note{font-size:13px;color:var(--muted)}
+kbd{font-family:var(--mono);font-size:12.5px;background:var(--th);color:var(--ink);border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 5px;white-space:nowrap}
+.g{font-weight:700;white-space:nowrap}
+.green{color:var(--g-green)}.blue{color:var(--g-blue)}.gold{color:var(--g-gold)}
+.red{color:var(--em);font-weight:700}
+figure.shot{margin:0;border:1px solid var(--line);background:var(--th)}
+figure.shot img{display:block;width:100%;height:auto}
+figure.shot.narrow{max-width:420px}
+figure.shot.fit{width:fit-content;max-width:100%;margin-inline:auto}
+figure.shot.fit img{width:auto;max-width:100%;max-height:60vh}
+figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;border-top:1px solid var(--line)}
+.gnav{position:sticky;top:0;z-index:10;margin:-20px -16px 16px;background:#1c1a20;border-bottom:3px solid var(--accent);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gnav::-webkit-scrollbar{display:none}
+.gnav ul{list-style:none;margin:0 auto;padding:0 8px;max-width:760px;display:flex;white-space:nowrap}
+.gnav li+li{margin-top:0}
+.gnav a{display:block;padding:11px 10px;color:var(--bar-ink);font-size:13.5px;font-weight:700}
+.gnav a:hover,.gnav a:focus-visible{text-decoration:none;background:var(--accent);color:#1c1a20}
+.gnav a:focus-visible{outline:2px solid var(--bar-ink);outline-offset:-3px}
+#top{scroll-margin-top:60px}
+.hero{margin:-20px calc(-1*clamp(14px,4vw,28px)) 0;background:#1c1a20;padding:22px 16px 18px;text-align:center;border-bottom:3px solid var(--accent)}
+.hero img{display:block;margin-inline:auto;width:min(340px,82%);height:auto}
+.hero p{margin:8px 0 0;color:#fcc2eb;font-size:12px;font-weight:700;letter-spacing:.18em}
+.credit{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pages{display:flex;gap:8px}
+.pages a{flex:1;min-width:0;text-align:center;padding:9px 6px;border:1px solid var(--line);background:var(--th);color:var(--th-ink);font-weight:700;font-size:14px}
+.pages a[aria-current]{background:var(--bar);color:var(--bar-ink);border-color:var(--bar);border-bottom:3px solid var(--accent)}
+.pages a:hover{text-decoration:none;border-color:var(--accent)}
+.gal{display:grid;gap:10px;align-items:start}
+.gal3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gal2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:560px){.gal2.stack{grid-template-columns:1fr}}
+.gal figure.shot img{max-height:70vh;object-fit:contain}
+.lead{font-weight:700;font-size:16px}
+.goal{background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.goal b{color:var(--accent);font-size:17px}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
+</style>
+
+</head>
+<body>
+<nav class="gnav" aria-label="目次">
+  <ul>
+    <li><a href="#top">TOP</a></li>
+    <li><a href="#s0">装備の目安</a></li>
+    <li><a href="#s1">①IDで装備</a></li>
+    <li><a href="#s2">②運が悪い人</a></li>
+    <li><a href="#s3">③戦闘力(CP)</a></li>
+    <li><a href="#s4">④強化石</a></li>
+    <li><a href="#s5">⑤アビスの羽</a></li>
+    <li><a href="#s6">IL1600の先</a></li>
+  </ul>
+</nav>
+<div class="page" id="top">
+  <div class="hero"><img src="img/logo.png" alt="Sugarless AION2 LEGION" width="900" height="378"><p>IL GUIDE</p></div>
+  <nav class="pages" aria-label="ページ切り替え"><a href="index.html">〜IL1400</a><a href="il1600.html" aria-current="page">IL1400〜1600</a></nav>
+  <h1>AION2 IL上げガイド｜IL1400〜1600の進め方</h1>
+  <p class="meta">最終更新日:2026年10月12日</p>
+
+  <p>IL1400からIL1600までの上げ方と、あわせて上げておきたい戦闘力(CP)、強化石・アビスの羽の集め方をまとめています。IL1400までの進め方は<a href="index.html">前のページ</a>を見てください。</p>
+  <p class="lead">1400に向けて強化を理解できた方なら、「あれ？意外とすぐいけそうだな」ってなると思います。</p>
+
+  <div class="tw">
+    <table class="toc">
+      <caption>▼IL1400〜1600ガイドの目次</caption>
+      <tbody>
+        <tr>
+          <td><a href="#s0">▶ IL1600の装備の目安</a></td>
+          <td><a href="#s1">▶ ①IDで装備を取得</a></td>
+          <td><a href="#s2">▶ ②運が悪い人</a></td>
+        </tr>
+        <tr>
+          <td><a href="#s3">▶ ③戦闘力(CP)</a></td>
+          <td><a href="#s4">▶ ④強化石の集め方</a></td>
+          <td><a href="#s5">▶ ⑤アビスの羽集め</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="s0">IL1600の装備の目安</h2>
+  <p>まず、IL1600だと装備はこれくらいです。</p>
+  <div class="gal gal3">
+    <figure class="shot"><img src="img/il16001.jpg" alt="IL1600時点の装備例その1" loading="lazy"><figcaption>▲装備例1</figcaption></figure>
+    <figure class="shot"><img src="img/il16002.jpg" alt="IL1600時点の装備例その2" loading="lazy"><figcaption>▲装備例2</figcaption></figure>
+    <figure class="shot"><img src="img/il16003.jpg" alt="IL1600時点の装備例その3" loading="lazy"><figcaption>▲装備例3</figcaption></figure>
+  </div>
+
+  <h2 id="s1">①IDで装備を取得する</h2>
+  <p>IL1400を超えると、この2種の征服(Hard)IDに入れるようになります。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>ID</th><th>確定報酬で選べるもの</th></tr></thead>
+      <tbody>
+        <tr><th>ウルググ峡谷</th><td><strong>アクセサリー</strong>(ネックレス・イヤリング・リング)</td></tr>
+        <tr><th>バクロンの空中島</th><td><strong>防具</strong>(プレート・ゲートル・ヘルム・ショルダー・グローブなど)</td></tr>
+        <tr><th>入場条件</th><td>IL1400以上、2人〜5人</td></tr>
+        <tr><th>確定報酬</th><td>箱を<span class="red">21回</span>開けると1つ選べる</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/evilkiss21.jpg" alt="ウルググ峡谷の確定報酬選択画面。アウルラムスのネックレス、イヤリング、リングが並ぶ" loading="lazy"><figcaption>▲ウルググ峡谷。確定報酬はアクセサリー</figcaption></figure>
+    <figure class="shot"><img src="img/evilkiss22.jpg" alt="バクロンの空中島の確定報酬選択画面。バクロンのプレート、ゲートル、ヘルムなどが並ぶ" loading="lazy"><figcaption>▲バクロンの空中島。確定報酬は防具</figcaption></figure>
+  </div>
+  <p>ここからは確定箱の回数が21回に増え、運も必要になってきます。毎日NCへのお祈りを欠かさず、他人に優しく、天族を駆逐して徳を積みましょう。</p>
+  <div class="point"><b>運が良ければ</b>4〜5か所拾えて、適当に強化すればIL1600です。おめでとう！！</div>
+
+  <h2 id="s2">②運が悪い人</h2>
+  <p>残念ながら装備が拾えなかった方は、確定報酬で足りない部位を埋めます。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th>手順</th><th>やること</th></tr></thead>
+      <tbody>
+        <tr><th class="num">1</th><td><strong>ウルググ峡谷</strong>をまず21箱開ける。その間に出なかった<strong>アクセサリー</strong>を確定報酬で交換</td></tr>
+        <tr><th class="num">2</th><td>次に<strong>バクロンの空中島</strong>を21箱開ける。その間に出なかった<strong>防具</strong>を確定報酬で交換</td></tr>
+        <tr><th class="num">3</th><td>強化して<span class="red">下級魔石</span>を入れる</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>これで1600に届くはずです。</p>
+
+  <h2 id="s3">③戦闘力(CP)</h2>
+  <p>だんだんPT募集で、ILとは別に「80k」「90k」といった戦闘力(CP)の条件が見えるようになります。</p>
+  <div class="gal gal2">
+    <figure class="shot fit"><img src="img/evilkiss16005.jpg" alt="キャラクター情報のIL表示。2,246" loading="lazy"><figcaption>▲IL表示</figcaption></figure>
+    <figure class="shot fit"><img src="img/evilkiss16006.jpg" alt="キャラクター情報のCP表示。115.1K" loading="lazy"><figcaption>▲CP表示</figcaption></figure>
+  </div>
+  <p class="note">※数字の横の⇔のようなマークで、ILとCPの表示を切り替えられます。</p>
+
+  <h3>ILとCPの上げ方の違い</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>上げたいもの</th><th>上げ方</th></tr></thead>
+      <tbody>
+        <tr><th>IL</th><td>装備品、アルカナ、ディーヴァニオンボード</td></tr>
+        <tr><th>CP</th><td>スキルレベル、<span class="red">スティグマレベル</span>、ディーヴァニオンボード、ペット厳選</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><b>特にスティグマがおすすめ</b>スティグマはCPを上げやすいです。スキル自体も強力なものが多く、スキルレベル10・15・20で付く追加効果がめちゃくちゃ強くなることがあります。</div>
+
+  <h3>スキルとスティグマ</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>上げるもの</th><th>素材の入手先</th></tr></thead>
+      <tbody>
+        <tr><th>スキル</th><td>スキルポイント:レベルアップ、サブクエ</td></tr>
+        <tr><th>スティグマ</th><td>スティグマシャード:AP(アビスポイント。主にPvP系コンテンツで取得)、シューゴポイント・悪夢のポイントで交換</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>CPが大きく伸びるので、コツコツ貯めましょう。</p>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/skill1.jpg" alt="スキル画面のアクティブとパッシブ一覧" loading="lazy"><figcaption>▲スキル一覧。スキルポイントでレベルを上げる</figcaption></figure>
+    <figure class="shot"><img src="img/skill2.jpg" alt="スキル詳細画面。特化で追加効果を選べる" loading="lazy"><figcaption>▲スキル詳細。特化で追加効果が付く</figcaption></figure>
+  </div>
+  <figure class="shot"><img src="img/skill3.jpg" alt="スキル画面のスティグマタブ" loading="lazy"><figcaption>▲スキル画面の「スティグマ」タブ</figcaption></figure>
+  <div class="gal gal2 stack">
+    <figure class="shot"><img src="img/skill4.jpg" alt="スティグマ一覧。下にレベルアップボタンがある" loading="lazy"><figcaption>▲スティグマ一覧。下のレベルアップでスティグマシャードを使う</figcaption></figure>
+    <figure class="shot"><img src="img/skill5.jpg" alt="バイゼルの権能Lv.19の詳細。Lv.20で解放される効果に鍵マークが付いている" loading="lazy"><figcaption>▲レベル20で解放される追加効果(鍵マーク)</figcaption></figure>
+  </div>
+
+  <h2 id="s4">④強化石の集め方</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>方法</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><th>デイリーダンジョン<br><span class="note">週ごとの回数制</span></th><td>デイリーですが、週に行ける回数が決まっています。溢れさせないように消化しておきましょう。</td></tr>
+        <tr><th>時空の亀裂</th><td>3時間おきにMAPに出現。入ると1時間、天界(魔界)にいられます。<br>この1時間の間に<strong>封印ダンジョン</strong>を回ると、強化石とAPを大量に集められます。<br><span class="note">※1か所3〜5分で2500とか貰える</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="point"><b>時空の亀裂の注意ポイント</b>PvEモードで入ればNPC以外から攻撃はされないので、のんびり観光してきてください。<br>ただしMAPのキベリスク付近や建物の近くには警備兵NPCがいることが多く、一撃で黒ゴマにされるので気を付けましょう。</div>
+
+  <h2 id="s5">⑤アビスの羽集め</h2>
+  <p>アビスの羽集めも重要です。自勢力付近の安全なところから集めましょう。</p>
+  <ul>
+    <li>アビスにいる時間は1週間で限られています</li>
+    <li>当たり前ですが、敵対種族がいれば襲われます</li>
+    <li>無理だと思ったら一旦その場所はやめて、時間を置くか別の場所を優先しましょう</li>
+  </ul>
+  <div class="point"><b>アビスでは気を抜かない</b>何時間も同じ場所をパトロールしてる奴はそうそういません。でも気を抜かないで。たまにおかしなやつがいます。</div>
+
+  <h2 id="s6">IL1600の先</h2>
+  <div class="goal"><b>IL1600に到達したら、いよいよ超越IDに挑戦できます！</b><span>FF14でいうと簡単な極くらいの難易度です。まずは1600まで頑張りましょう！</span></div>
+
+  <footer>レギオンメンバーと知り合い向けメモです。数値や仕様はアップデートで変わることがあります。</footer>
+</div>
+</body>
+</html>
