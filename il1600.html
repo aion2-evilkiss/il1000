@@ -93,7 +93,11 @@ figure.shot figcaption{font-size:12.5px;color:var(--muted);padding:6px 10px;bord
 .gal3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .gal2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:560px){.gal2.stack{grid-template-columns:1fr}}
-.gal figure.shot img{max-height:70vh;object-fit:contain}
+.gal{align-items:stretch}
+.gal figure.shot{display:flex;flex-direction:column}
+.gal figure.shot img{aspect-ratio:var(--ar,auto);height:auto;object-fit:contain;background:#16141a}
+.gal figure.shot figcaption{flex:1}
+@media (max-width:560px){.gal2.stack figure.shot img{aspect-ratio:auto}}
 .lead{font-weight:700;font-size:16px}
 .goal{background:var(--bar);color:var(--bar-ink);border-left:6px solid var(--accent);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
 .goal b{color:var(--accent);font-size:17px}
@@ -144,7 +148,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
   <h2 id="s0">IL1600の装備の目安</h2>
   <p>まず、IL1600だと装備はこれくらいです。</p>
-  <div class="gal gal3">
+  <div class="gal gal3" style="--ar:0.226;max-width:480px;margin-inline:auto;width:100%">
     <figure class="shot"><img src="img/il16001.jpg" alt="IL1600時点の装備例その1" loading="lazy"><figcaption>▲装備例1</figcaption></figure>
     <figure class="shot"><img src="img/il16002.jpg" alt="IL1600時点の装備例その2" loading="lazy"><figcaption>▲装備例2</figcaption></figure>
     <figure class="shot"><img src="img/il16003.jpg" alt="IL1600時点の装備例その3" loading="lazy"><figcaption>▲装備例3</figcaption></figure>
@@ -163,7 +167,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
-  <div class="gal gal2 stack">
+  <div class="gal gal2 stack" style="--ar:1.264">
     <figure class="shot"><img src="img/evilkiss21.jpg" alt="ウルググ峡谷の確定報酬選択画面。アウルラムスのネックレス、イヤリング、リングが並ぶ" loading="lazy"><figcaption>▲ウルググ峡谷。確定報酬はアクセサリー</figcaption></figure>
     <figure class="shot"><img src="img/evilkiss22.jpg" alt="バクロンの空中島の確定報酬選択画面。バクロンのプレート、ゲートル、ヘルムなどが並ぶ" loading="lazy"><figcaption>▲バクロンの空中島。確定報酬は防具</figcaption></figure>
   </div>
@@ -183,7 +187,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   </div>
   <p>これはIL1600、IL2100のIDでも同じです。探索(Easy)なら3箱開けるだけで確定箱を手に入れられますが、もらえるのは1回だけ。2回目以降は征服(Hard)で21箱ずつ開けていきます。</p>
   <div class="point"><b>確定箱は征服で出なかった部位に使う</b>確定箱は、征服(Hard)を回って出なかった部位を交換する方が効率が良いです。</div>
-  <div class="gal gal2 stack">
+  <div class="gal gal2 stack" style="--ar:0.901">
     <figure class="shot"><img src="img/soubi1.jpg" alt="探険(Easy)のバクロンの空中島。確定報酬のゲージが満タンで、防具を選べる" loading="lazy"><figcaption>▲探険(Easy)のバクロンの空中島。3箱で確定報酬の防具が選べる</figcaption></figure>
     <figure class="shot"><img src="img/soubi2.jpg" alt="探険(Easy)の獰猛な角岩窟。入場条件IL2100、確定報酬は0/3" loading="lazy"><figcaption>▲探険(Easy)の獰猛な角岩窟(IL2100)。確定報酬は3箱(0/3)</figcaption></figure>
   </div>
@@ -204,9 +208,9 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
   <h2 id="s3">③戦闘力(CP)</h2>
   <p>だんだんPT募集で、ILとは別に「80k」「90k」といった戦闘力(CP)の条件が見えるようになります。</p>
-  <div class="gal gal2">
-    <figure class="shot fit"><img src="img/evilkiss16004.jpg" alt="キャラクター情報のIL表示。2,246" loading="lazy"><figcaption>▲IL表示</figcaption></figure>
-    <figure class="shot fit"><img src="img/evilkiss16006.jpg" alt="キャラクター情報のCP表示。115.1K" loading="lazy"><figcaption>▲CP表示</figcaption></figure>
+  <div class="gal gal2" style="--ar:0.652;max-width:420px;margin-inline:auto;width:100%">
+    <figure class="shot"><img src="img/evilkiss16004.jpg" alt="キャラクター情報のIL表示。2,246" loading="lazy"><figcaption>▲IL表示</figcaption></figure>
+    <figure class="shot"><img src="img/evilkiss16006.jpg" alt="キャラクター情報のCP表示。115.1K" loading="lazy"><figcaption>▲CP表示</figcaption></figure>
   </div>
   <p class="note">※数字の横の⇔のようなマークで、ILとCPの表示を切り替えられます。</p>
 
@@ -247,14 +251,12 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     </table>
   </div>
   <div class="point"><b>特化はLv8・12・16・20で付与できる</b>スキルレベルが8、12、16、20になると、スキルに特化を付けられます。</div>
-  <div class="gal gal2 stack">
+  <div class="gal gal2 stack" style="--ar:0.533">
     <figure class="shot"><img src="img/skill1.jpg" alt="スキル画面のアクティブとパッシブ一覧" loading="lazy"><figcaption>▲スキル一覧。スキルポイントでレベルを上げる</figcaption></figure>
     <figure class="shot"><img src="img/skill2.jpg" alt="スキル詳細画面。特化で追加効果を選べる" loading="lazy"><figcaption>▲スキル詳細。特化で追加効果が付く</figcaption></figure>
   </div>
-  <div class="gal gal2 stack">
-    <figure class="shot"><img src="img/skill6.jpg" alt="メニューバー。ディーヴァニオンはUキー" loading="lazy"><figcaption>▲メニューの「ディーヴァニオン」(<kbd>U</kbd>)</figcaption></figure>
-    <figure class="shot"><img src="img/skill7.jpg" alt="ディーヴァニオンボード画面。スキルのノードを習得するとスキルレベルが上がる" loading="lazy"><figcaption>▲ディーヴァニオンボード。スキルのノードでスキルLvが+される</figcaption></figure>
-  </div>
+  <figure class="shot"><img src="img/skill6.jpg" alt="メニューバー。ディーヴァニオンはUキー" loading="lazy"><figcaption>▲メニューの「ディーヴァニオン」(<kbd>U</kbd>)</figcaption></figure>
+  <figure class="shot"><img src="img/skill7.jpg" alt="ディーヴァニオンボード画面。スキルのノードを習得するとスキルレベルが上がる" loading="lazy"><figcaption>▲ディーヴァニオンボード。スキルのノードでスキルLvが+される</figcaption></figure>
 
   <h3>スティグマ</h3>
   <p>スティグマは<strong>スティグマシャード</strong>だけで20まで上げられます。ただし、レベルが上がるごとに必要なシャードの数が増えていきます。</p>
@@ -270,7 +272,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   </div>
   <div class="point"><b>特にスティグマがおすすめ</b>スティグマはCPを上げやすいです。スティグマのスキル自体も強力なものが多く、スティグマレベル10・15・20で付く追加効果がめちゃくちゃ強くなることがあります。</div>
   <p>CPが大きく伸びるので、シャードはコツコツ貯めましょう。</p>
-  <div class="gal gal2 stack">
+  <div class="gal gal2 stack" style="--ar:0.425">
     <figure class="shot"><img src="img/skill4.jpg" alt="スティグマ一覧。下にレベルアップボタンがある" loading="lazy"><figcaption>▲スティグマ一覧。下のレベルアップでスティグマシャードを使う</figcaption></figure>
     <figure class="shot"><img src="img/skill5.jpg" alt="バイゼルの権能Lv.19の詳細。Lv.20で解放される効果に鍵マークが付いている" loading="lazy"><figcaption>▲レベル20で解放される追加効果(鍵マーク)</figcaption></figure>
   </div>
@@ -287,11 +289,11 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       </tbody>
     </table>
   </div>
-  <div class="gal gal2 stack">
+  <div class="gal gal2 stack" style="--ar:1.778">
     <figure class="shot"><img src="img/arukana1.jpg" alt="メニュー一覧。アルカナはAlt+V" loading="lazy"><figcaption>▲メニューの「アルカナ」(<kbd>Alt</kbd>+<kbd>V</kbd>)</figcaption></figure>
     <figure class="shot"><img src="img/arukana2.jpg" alt="アルカナ画面。装着したカードと装着効果、セット効果" loading="lazy"><figcaption>▲アルカナ画面。右に装着効果(ステータス・スキルLv)とセット効果</figcaption></figure>
   </div>
-  <div class="gal gal3">
+  <div class="gal gal3" style="--ar:0.604">
     <figure class="shot"><img src="img/arukana3.jpg" alt="魔力の聖杯。アイテムレベル20" loading="lazy"><figcaption>▲魔力の聖杯(IL20)</figcaption></figure>
     <figure class="shot"><img src="img/arukana4.jpg" alt="活力の羊皮紙。アイテムレベル40" loading="lazy"><figcaption>▲活力の羊皮紙(IL40)</figcaption></figure>
     <figure class="shot"><img src="img/arukana5.jpg" alt="+3活力の聖杯。アイテムレベル80+3" loading="lazy"><figcaption>▲+3 活力の聖杯(IL80+3)</figcaption></figure>
